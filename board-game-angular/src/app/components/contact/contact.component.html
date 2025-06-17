@@ -1,1 +1,83 @@
-<p>contact works!</p>
+<app-navbar></app-navbar>
+
+<!-- Sección Contacto -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-4">
+                <img src="img/logo.png" alt="Logo Ludoteca Andana" class="img-fluid" style="max-width: 220px;">
+            </div>
+            <div class="col-lg-10 col-xl-8 mx-auto">
+                <h2 class="fw-bolder mb-3">Formulario de Contacto</h2>
+                <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <input type="text" class="form-control" placeholder="Nombre" name="nombre" required [(ngModel)]="formData.nombre">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="email" class="form-control" placeholder="Correo electrónico" name="correo" required [(ngModel)]="formData.correo">
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <div class="col-md-6 mb-3 mb-md-0">
+                            <input type="text" class="form-control" placeholder="Apellido Paterno" name="apellido_paterno" required [(ngModel)]="formData.apellido_paterno">
+                        </div>
+                        <div class="col-md-6">
+                            <input type="text" class="form-control" placeholder="Apellido Materno" name="apellido_materno" required [(ngModel)]="formData.apellido_materno">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <select class="form-select" id="motivo" name="motivo" required [(ngModel)]="formData.motivo">
+                            <option value="">Selecciona un motivo</option>
+                            <option *ngFor="let motivo of motivos" [value]="motivo">{{ motivo }}</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" rows="4" placeholder="Escribe tu mensaje aquí..." name="mensaje" required [(ngModel)]="formData.mensaje"></textarea>
+                    </div>
+                    <div class="text-end">
+                        <button type="submit" class="btn btn-outline-dark">Enviar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+
+<!-- Modal Próximamente -->
+<div class="modal fade" id="modalProximamente" tabindex="-1" aria-labelledby="modalProximamenteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalProximamenteLabel">¡Próximamente!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            La funcionalidad estará disponible pronto.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal de éxito -->
+<div class="modal fade" id="modalExito" tabindex="-1" aria-labelledby="modalExitoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalExitoLabel">¡Mensaje enviado!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            Tu mensaje ha sido enviado exitosamente. Nos pondremos en contacto pronto.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+        </div>
+    </div>
+</div>

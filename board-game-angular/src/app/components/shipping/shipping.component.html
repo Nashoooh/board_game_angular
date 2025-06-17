@@ -1,1 +1,113 @@
-<p>shipping works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Pagina Venta Juegos de Mesa" />
+        <meta name="author" content="Ignacio Andana" />
+        <title>Ludoteca Andana</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="img/logo.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <!-- Navigation-->
+        <app-navbar></app-navbar>
+
+        <!-- Seccion Envíos y Retiros -->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-4">
+                        <img src="img/envio.png" alt="Devoluciones Ludoteca Andana" class="img-fluid w-100" style="max-width: 500px;">                    </div>
+                    <!-- Removed extra closing div here -->
+                        <div class="col-lg-10 col-xl-8 mx-auto">
+                            <h2 class="fw-bolder mb-3">Políticas de Envío y Retiros</h2>
+                            <h4 class="mt-4 mb-2">Envíos en Santiago</h4>
+                            <ul>
+                                <li>Pedidos realizados <strong>antes de las 12:00 hrs</strong> se despachan el mismo día hábil en comunas seleccionadas (ver tabla).</li>
+                                <li>Pedidos realizados <strong>después de las 12:00 hrs</strong> se despachan el día hábil siguiente.</li>
+                                <li>En comunas periféricas (ej: Lampa, Colina, Padre Hurtado, etc.) el despacho es al día hábil siguiente.</li>
+                                <li><strong>Envío gratis por compras sobre $30.000.</strong></li>
+                            </ul>
+                            <div class="table-responsive mb-3">
+                                <table class="table table-bordered table-sm align-middle">
+                                    <thead class="table-light">
+                                        <tr>
+                                            <th>Comunas con Delivery Mismo Día</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <ul class="mb-0">
+                                                    <li>Santiago Centro</li>
+                                                    <li>Providencia</li>
+                                                    <li>Ñuñoa</li>
+                                                    <li>Las Condes</li>
+                                                    <li>La Reina</li>
+                                                    <li>Macul</li>
+                                                    <li>San Joaquín</li>
+                                                    <li>Peñalolén</li>
+                                                    <li>Independencia</li>
+                                                    <li>Recoleta</li>
+                                                    <li>Estación Central</li>
+                                                    <li>Quinta Normal</li>
+                                                    <li>Lo Prado</li>
+                                                    <li>Pedro Aguirre Cerda</li>
+                                                    <li>San Miguel</li>
+                                                    <li>San Ramón</li>
+                                                    <li>La Florida</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <h4 class="mt-4 mb-2">Envíos a Regiones</h4>
+                            <ul>
+                                <li>Despacho a regiones en <strong>2 días hábiles</strong> vía courier.</li>
+                                <li>El número de seguimiento será enviado por correo electrónico una vez despachado.</li>
+                            </ul>
+                            <h4 class="mt-4 mb-2">Retiros en tienda</h4>
+                            <ul>
+                                <li>Pedidos realizados <strong>antes de las 12:00 hrs</strong> pueden retirarse el mismo día hábil.</li>
+                                <li>Pedidos realizados <strong>después de las 12:00 hrs</strong> pueden retirarse al día hábil siguiente.</li>
+                                <li>Para retirar, debes presentar la orden de compra enviada a tu correo electrónico.</li>
+                            </ul>
+                            <h4 class="mt-4 mb-2">Información adicional</h4>
+                            <ul>
+                                <li>Los despachos y retiros se realizan de lunes a viernes, excepto feriados.</li>
+                                <li>Si tienes dudas, puedes contactarnos a través de nuestro formulario o WhatsApp.</li>
+                            </ul>
+                        </div>
+                    </div>
+                
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+
+        <!-- Modal Próximamente -->
+        <div class="modal fade" id="modalProximamente" tabindex="-1" aria-labelledby="modalProximamenteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProximamenteLabel">¡Próximamente!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    La funcionalidad estará disponible pronto.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>

@@ -7,26 +7,26 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="/">Inicio</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/nosotros">Nosotros</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/about">Nosotros</a></li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tienda</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" routerLink="/productos">Juegos de Mesa</a></li>
+                        <li><a class="dropdown-item" routerLink="/product-list">Juegos de Mesa</a></li>
                         <li><hr class="dropdown-divider" /></li>
-                        <li><a class="dropdown-item" [routerLink]="['/productos']" [queryParams]="{categoria: 'estrategia'}">Estrategia</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/productos']" [queryParams]="{categoria: 'familiares'}">Familiares</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/productos']" [queryParams]="{categoria: 'infantiles'}">Infantiles</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/productos']" [queryParams]="{categoria: 'pareja'}">Pareja</a></li>
-                        <li><a class="dropdown-item" [routerLink]="['/productos']" [queryParams]="{categoria: 'party'}">Party Game</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/product-list']" [queryParams]="{categoria: 'estrategia'}">Estrategia</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/product-list']" [queryParams]="{categoria: 'familiares'}">Familiares</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/product-list']" [queryParams]="{categoria: 'infantiles'}">Infantiles</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/product-list']" [queryParams]="{categoria: 'pareja'}">Pareja</a></li>
+                        <li><a class="dropdown-item" [routerLink]="['/product-list']" [queryParams]="{categoria: 'party'}">Party Game</a></li>
                     </ul>
                 </li>
-                <li class="nav-item"><a class="nav-link" routerLink="/envios">Envíos y Retiros</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/devoluciones">Devoluciones</a></li>
-                <li class="nav-item"><a class="nav-link" routerLink="/contacto">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/shipping">Envíos y Retiros</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/returns">Devoluciones</a></li>
+                <li class="nav-item"><a class="nav-link" routerLink="/contact">Contacto</a></li>
             </ul>
             <form class="d-flex">
                 <button class="btn btn-outline-dark me-2" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">Login</button>
-                <button class="btn btn-outline-dark me-2" type="button" routerLink="/registro">Registro</button>
+                <button class="btn btn-outline-dark me-2" type="button" routerLink="/register">Registro</button>
                 <button class="btn btn-outline-dark" type="button" data-bs-toggle="modal" data-bs-target="#modalProximamente">
                     <i class="bi-cart-fill me-1"></i>
                     Carrito

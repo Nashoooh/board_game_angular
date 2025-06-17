@@ -1,1 +1,102 @@
-<p>product-list works!</p>
+<app-navbar></app-navbar>
+
+<!-- Header-->
+<header class="bg-dark py-3">
+    <div class="container px-4 px-lg-5 my-3">
+        <div class="text-center text-white">
+            <h1 class="display-6 fw-bolder mb-2">Productos</h1>
+        </div>
+    </div>
+</header>
+
+<!-- Section -->
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="mb-4 d-flex left gap-2">
+            <a routerLink="/" class="btn btn-outline-dark">
+                <i class="bi bi-house-door me-1"></i> Inicio
+            </a>
+        </div>
+    </div>
+
+    <!-- Filtros Productos -->
+    <div class="filtro-categorias text-center my-4">
+        <h5 class="mb-3">Categorías</h5>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <button *ngFor="let cat of categorias"
+                    class="btn btn-outline-dark filtro-btn mb-2"
+                    [ngClass]="{'active': categoriaSeleccionada === cat.valor}"
+                    (click)="seleccionarCategoria(cat.valor)">
+                {{cat.nombre}}
+            </button>
+        </div>
+    </div>
+
+    <!-- Productos -->
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div *ngFor="let producto of productosPagina" class="producto col mb-5" [attr.data-categoria]="producto.categoria">
+                <div class="card h-100">
+                    <div *ngIf="producto.oferta" class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Oferta</div>
+                    <div *ngIf="producto.stock === 0" class="badge bg-danger text-white position-absolute" style="top: 0.5rem; left: 0.5rem">Agotado</div>
+                    <img class="card-img-top" [src]="producto.imagen" [alt]="producto.nombre" />
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <h5 class="fw-bolder">{{producto.nombre}}</h5>
+                            <span [innerHTML]="renderStars(producto.puntuacion || 0)"></span>
+                            <div class="mb-2">
+                                <span class="badge bg-secondary">{{producto.stock > 0 ? ('Stock: ' + producto.stock) : 'Sin stock'}}</span>
+                            </div>
+                            <span *ngIf="producto.oferta">
+                                <span class="text-muted text-decoration-line-through">${{producto.precio | number:'1.0-0'}}</span>
+                                ${{producto.oferta | number:'1.0-0'}}
+                            </span>
+                            <span *ngIf="!producto.oferta">
+                                ${{producto.precio | number:'1.0-0'}}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center mb-2">
+                            <a class="btn btn-outline-dark mt-auto" [routerLink]="['/detail', producto.id]">Ver más</a>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-outline-dark mt-auto" [disabled]="producto.stock === 0">
+                                {{producto.stock === 0 ? 'Agotado' : 'Agregar al carro'}}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Paginación -->
+        <div class="d-flex justify-content-end mt-4">
+            <button *ngFor="let page of [].constructor(totalPaginas); let i = index"
+                    class="btn btn-outline-dark btn-sm mx-1"
+                    [ngClass]="{'active': paginaActual === (i+1)}"
+                    (click)="cambiarPagina(i+1)">
+                {{i+1}}
+            </button>
+        </div>
+    </div>
+</section>
+
+<app-footer></app-footer>
+
+<!-- Modal Próximamente -->
+<div class="modal fade" id="modalProximamente" tabindex="-1" aria-labelledby="modalProximamenteLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="modalProximamenteLabel">¡Próximamente!</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+            La funcionalidad estará disponible pronto.
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+        </div>
+    </div>
+</div>

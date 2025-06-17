@@ -1,1 +1,86 @@
-<p>returns works!</p>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="Pagina Venta Juegos de Mesa" />
+        <meta name="author" content="Ignacio Andana" />
+        <title>Ludoteca Andana</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="img/logo.png" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+    </head>
+    <body>
+        
+        <!-- Navigation-->
+        <app-navbar></app-navbar>
+
+        <!-- Sección Devoluciones y Cambios -->
+        <section class="py-5">
+            <div class="container px-4 px-lg-5 my-5">
+                <div class="row justify-content-center">
+                    <div class="col-md-6 text-center mb-4">
+                        <img src="img/devolucion.png" alt="Devoluciones Ludoteca Andana" class="img-fluid w-100" style="max-width: 500px;">                    </div>
+                    <div class="col-lg-10 col-xl-8 mx-auto">
+                        <h2 class="fw-bolder mb-3">Políticas de Devoluciones y Cambios</h2>
+                        <h4 class="mt-4 mb-2">Garantía Legal</h4>
+                        <ul>
+                            <li>Todos nuestros productos cuentan con una garantía legal de <strong>3 meses</strong> desde la fecha de compra.</li>
+                            <li>La garantía cubre fallas de fabricación o funcionamiento.</li>
+                        </ul>
+                        <h4 class="mt-4 mb-2">Requisitos para Cambios o Devoluciones</h4>
+                        <ul>
+                            <li>El producto debe estar en buenas condiciones, con sus accesorios, embalaje original y sin daños por mal uso.</li>
+                            <li>Debes presentar la boleta o comprobante de compra.</li>
+                            <li>No se aceptan devoluciones de productos con señales de uso indebido, incompletos o dañados por el cliente.</li>
+                        </ul>
+                        <h4 class="mt-4 mb-2">Motivos válidos para devolución o cambio</h4>
+                        <ul>
+                            <li>Producto defectuoso o con fallas de fábrica.</li>
+                            <li>Producto recibido distinto al comprado.</li>
+                            <li>Faltan piezas o accesorios esenciales.</li>
+                        </ul>
+                        <h4 class="mt-4 mb-2">¿Cómo solicitar un cambio o devolución?</h4>
+                        <ul>
+                            <li>Contáctanos a través del formulario de contacto o WhatsApp indicando tu número de pedido y motivo.</li>
+                            <li>Una vez aprobado, puedes coordinar el envío o retiro del producto para revisión.</li>
+                            <li>El proceso de evaluación puede tomar hasta 5 días hábiles.</li>
+                        </ul>
+                        <h4 class="mt-4 mb-2">Información adicional</h4>
+                        <ul>
+                            <li>Los costos de envío por devoluciones o cambios por falla corren por cuenta de Ludoteca Andana.</li>
+                            <li>Para cambios por motivos personales (no falla), el cliente asume los costos de envío.</li>
+                            <li>No se realizan devoluciones de dinero por arrepentimiento de compra, salvo lo dispuesto en la Ley del Consumidor.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <app-footer></app-footer>
+
+        <!-- Modal Próximamente -->
+        <div class="modal fade" id="modalProximamente" tabindex="-1" aria-labelledby="modalProximamenteLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalProximamenteLabel">¡Próximamente!</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body">
+                    La funcionalidad estará disponible pronto.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    </body>
+</html>

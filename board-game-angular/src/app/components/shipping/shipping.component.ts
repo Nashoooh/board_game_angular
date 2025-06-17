@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-shipping',
-  imports: [],
   templateUrl: './shipping.component.html',
-  styleUrl: './shipping.component.scss'
+  styleUrl: './shipping.component.scss',
+  imports: [NavbarComponent, FooterComponent]
 })
 export class ShippingComponent {
 

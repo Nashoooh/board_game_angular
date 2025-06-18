@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShippingComponent } from './shipping.component';
+import { ActivatedRoute } from '@angular/router';
+import { of } from 'rxjs';
 
 describe('ShippingComponent', () => {
   let component: ShippingComponent;
@@ -8,9 +9,18 @@ describe('ShippingComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ShippingComponent]
-    })
-    .compileComponents();
+      imports: [ShippingComponent],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            paramMap: of({
+              get: (key: string) => 'some-value' // Simula un parámetro de ruta
+            })
+          }
+        }
+      ]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(ShippingComponent);
     component = fixture.componentInstance;

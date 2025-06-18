@@ -1,14 +1,13 @@
 import { Component } from '@angular/core';
 import { NavbarComponent } from '../navbar/navbar.component';
 import { FooterComponent } from '../footer/footer.component';
-import { FormsModule } from '@angular/forms'; // Import FormsModule
-import { CommonModule } from '@angular/common'; // Import CommonModule
+import { FormContactComponent } from '../form-contact/form-contact.component';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
   styleUrl: './contact.component.scss',
-  imports: [NavbarComponent, FooterComponent, FormsModule, CommonModule] // Add CommonModule here
+  imports: [NavbarComponent, FooterComponent, FormContactComponent] // Add CommonModule here
 })
 export class ContactComponent {
   motivos: string[] = [

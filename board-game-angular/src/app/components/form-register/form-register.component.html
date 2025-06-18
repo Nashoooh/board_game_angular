@@ -1,0 +1,121 @@
+<form [formGroup]="registerForm" (ngSubmit)="onSubmit()" id="form-registro" autocomplete="off">
+  <div class="mb-3">
+    <label for="nombre" class="form-label">Nombre completo</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      formControlName="nombre"
+    />
+    <div *ngIf="registerForm.get('nombre')?.invalid && registerForm.get('nombre')?.touched" class="text-danger mt-1">
+      <div *ngIf="registerForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="usuario" class="form-label">Nombre de usuario</label>
+    <input
+      type="text"
+      class="form-control"
+      id="usuario"
+      formControlName="usuario"
+    />
+    <div *ngIf="registerForm.get('usuario')?.invalid && registerForm.get('usuario')?.touched" class="text-danger mt-1">
+      <div *ngIf="registerForm.get('usuario')?.errors?.['required']">El nombre de usuario es obligatorio.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="correo" class="form-label">Correo electrónico</label>
+    <input
+      type="email"
+      class="form-control"
+      id="correo"
+      formControlName="correo"
+    />
+    <div *ngIf="registerForm.get('correo')?.invalid && registerForm.get('correo')?.touched" class="text-danger mt-1">
+      <div *ngIf="registerForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+      <div *ngIf="registerForm.get('correo')?.errors?.['email']">Ingrese un correo electrónico válido.</div>
+    </div>
+  </div>
+
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <label for="clave" class="form-label">Contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="clave"
+        formControlName="clave"
+      />
+      <div *ngIf="registerForm.get('clave')?.invalid && registerForm.get('clave')?.touched" class="text-danger mt-1">
+        <div *ngIf="registerForm.get('clave')?.errors?.['required']">La contraseña es obligatoria.</div>
+        <div *ngIf="registerForm.get('clave')?.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
+        <div *ngIf="registerForm.get('clave')?.errors?.['maxlength']">La contraseña no debe exceder los 18 caracteres.</div>
+        <div *ngIf="registerForm.get('clave')?.errors?.['pattern']">
+          La contraseña debe tener al menos una mayúscula, un número y puede contener &#64; $ ! % * ? &.
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <label for="clave2" class="form-label">Repetir contraseña</label>
+      <input
+        type="password"
+        class="form-control"
+        id="clave2"
+        formControlName="clave2"
+      />
+      <div *ngIf="registerForm.get('clave2')?.invalid && registerForm.get('clave2')?.touched" class="text-danger mt-1">
+        <div *ngIf="registerForm.get('clave2')?.errors?.['required']">Repetir la contraseña es obligatorio.</div>
+      </div>
+      <div *ngIf="claveNoCoincide" class="text-danger mt-1">Las contraseñas no coinciden.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
+    <input
+      type="date"
+      class="form-control"
+      id="nacimiento"
+      formControlName="nacimiento"
+    />
+    <div *ngIf="registerForm.get('nacimiento')?.invalid && registerForm.get('nacimiento')?.touched" class="text-danger mt-1">
+      <div *ngIf="registerForm.get('nacimiento')?.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
+      <div *ngIf="registerForm.get('nacimiento')?.errors?.['edadInvalida']">Debes tener al menos 13 años.</div>
+    </div>
+  </div>
+
+  <div class="mb-3">
+    <label for="direccion" class="form-label">Dirección de despacho (opcional)</label>
+    <input
+      type="text"
+      class="form-control"
+      id="direccion"
+      formControlName="direccion"
+    />
+  </div>
+
+  <div class="text-end">
+    <button type="submit" class="btn btn-outline-dark me-2" [disabled]="registerForm.invalid">Registrar</button>
+    <button type="button" class="btn btn-secondary" id="btn-limpiar" (click)="onLimpiar()">Limpiar</button>
+  </div>
+</form>
+
+<!-- Modal de éxito -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">¡Registro Exitoso!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Tu formulario ha sido enviado exitosamente.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

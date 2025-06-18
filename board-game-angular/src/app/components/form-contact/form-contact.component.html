@@ -1,0 +1,96 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Nombre"
+        formControlName="nombre"
+      />
+      <div *ngIf="contactForm.get('nombre')?.invalid && contactForm.get('nombre')?.touched" class="text-danger mt-1">
+        <div *ngIf="contactForm.get('nombre')?.errors?.['required']">El nombre es obligatorio.</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <input
+        type="email"
+        class="form-control"
+        placeholder="Correo electrónico"
+        formControlName="correo"
+      />
+      <div *ngIf="contactForm.get('correo')?.invalid && contactForm.get('correo')?.touched" class="text-danger mt-1">
+        <div *ngIf="contactForm.get('correo')?.errors?.['required']">El correo es obligatorio.</div>
+        <div *ngIf="contactForm.get('correo')?.errors?.['email']">Ingrese un correo válido.</div>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-6 mb-3 mb-md-0">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Apellido Paterno"
+        formControlName="apellido_paterno"
+      />
+      <div *ngIf="contactForm.get('apellido_paterno')?.invalid && contactForm.get('apellido_paterno')?.touched" class="text-danger mt-1">
+        <div *ngIf="contactForm.get('apellido_paterno')?.errors?.['required']">El apellido paterno es obligatorio.</div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <input
+        type="text"
+        class="form-control"
+        placeholder="Apellido Materno"
+        formControlName="apellido_materno"
+      />
+      <div *ngIf="contactForm.get('apellido_materno')?.invalid && contactForm.get('apellido_materno')?.touched" class="text-danger mt-1">
+        <div *ngIf="contactForm.get('apellido_materno')?.errors?.['required']">El apellido materno es obligatorio.</div>
+      </div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <select
+      class="form-select"
+      formControlName="motivo"
+    >
+      <option value="">Selecciona un motivo</option>
+      <option *ngFor="let motivo of motivos" [value]="motivo">{{ motivo }}</option>
+    </select>
+    <div *ngIf="contactForm.get('motivo')?.invalid && contactForm.get('motivo')?.touched" class="text-danger mt-1">
+      <div *ngIf="contactForm.get('motivo')?.errors?.['required']">El motivo es obligatorio.</div>
+    </div>
+  </div>
+  <div class="mb-3">
+    <textarea
+      class="form-control"
+      rows="4"
+      placeholder="Escribe tu mensaje aquí..."
+      formControlName="mensaje"
+    ></textarea>
+    <div *ngIf="contactForm.get('mensaje')?.invalid && contactForm.get('mensaje')?.touched" class="text-danger mt-1">
+      <div *ngIf="contactForm.get('mensaje')?.errors?.['required']">El mensaje es obligatorio.</div>
+      <div *ngIf="contactForm.get('mensaje')?.errors?.['minlength']">El mensaje debe tener al menos 10 caracteres.</div>
+    </div>
+  </div>
+  <div class="text-end">
+    <button type="submit" class="btn btn-outline-dark" [disabled]="contactForm.invalid">Enviar</button>
+  </div>
+</form>
+
+<!-- Modal de éxito -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">¡Mensaje Enviado!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        Tu mensaje ha sido enviado exitosamente. Nos pondremos en contacto contigo pronto.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>

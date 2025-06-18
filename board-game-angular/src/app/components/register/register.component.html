@@ -22,67 +22,7 @@
                 <div class="row justify-content-center">
                     <div class="col-lg-10 col-xl-8 mx-auto">
                         <h2 class="fw-bolder mb-3">Formulario de Registro</h2>
-                        <form #form="ngForm" (ngSubmit)="onSubmit(form)" id="form-registro" autocomplete="off">
-                            <div class="mb-3">
-                                <label for="nombre" class="form-label">Nombre completo</label>
-                                <input type="text" class="form-control" id="nombre" name="nombre" [(ngModel)]="formData.nombre" required #nombreInput="ngModel">
-                                <div *ngIf="nombreInput.invalid && (nombreInput.dirty || nombreInput.touched)" class="text-danger mt-1">
-                                    <div *ngIf="nombreInput.errors?.['required']">El nombre es obligatorio.</div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="usuario" class="form-label">Nombre de usuario</label>
-                                <input type="text" class="form-control" id="usuario" name="usuario" [(ngModel)]="formData.usuario" required #usuarioInput="ngModel">
-                                 <div *ngIf="usuarioInput.invalid && (usuarioInput.dirty || usuarioInput.touched)" class="text-danger mt-1">
-                                    <div *ngIf="usuarioInput.errors?.['required']">El nombre de usuario es obligatorio.</div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="correo" class="form-label">Correo electrónico</label>
-                                <input type="email" class="form-control" id="correo" name="correo" [(ngModel)]="formData.correo" required email #correoInput="ngModel">
-                                <div *ngIf="correoInput.invalid && (correoInput.dirty || correoInput.touched)" class="text-danger mt-1">
-                                    <div *ngIf="correoInput.errors?.['required']">El correo es obligatorio.</div>
-                                    <div *ngIf="correoInput.errors?.['email']">Ingrese un correo electrónico válido.</div>
-                                </div>
-                            </div>
-                            <div class="row mb-3">
-                                <div class="col-md-6 mb-3 mb-md-0">
-                                    <label for="clave" class="form-label">Contraseña</label>
-                                    <input type="password" class="form-control" id="clave" name="clave" [(ngModel)]="formData.clave" required minlength="6" maxlength="18" pattern="^(?=.*[A-Z])(?=.*\d)[A-Za-z\d@$!%*?&.]{6,18}$" #claveInput="ngModel">
-                                    <div *ngIf="claveInput.invalid && (claveInput.dirty || claveInput.touched)" class="text-danger mt-1">
-                                        <div *ngIf="claveInput.errors?.['required']">La contraseña es obligatoria.</div>
-                                        <div *ngIf="claveInput.errors?.['minlength']">La contraseña debe tener al menos 6 caracteres.</div>
-                                        <div *ngIf="claveInput.errors?.['maxlength']">La contraseña no debe exceder los 18 caracteres.</div>
-                                        <div *ngIf="claveInput.errors?.['pattern']">La contraseña debe tener al menos una mayúscula, un número y puede contener &#64;$!%*?&.</div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="clave2" class="form-label">Repetir contraseña</label>
-                                    <input type="password" class="form-control" id="clave2" name="clave2" [(ngModel)]="formData.clave2" required #clave2Input="ngModel">
-                                    <div *ngIf="clave2Input.invalid && (clave2Input.dirty || clave2Input.touched) && clave2Input.errors?.['required']" class="text-danger mt-1">
-                                        Repetir la contraseña es obligatorio.
-                                    </div>
-                                     <div *ngIf="formData.clave !== formData.clave2 && clave2Input.touched" class="text-danger mt-1">
-                                        Las contraseñas no coinciden.
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="nacimiento" class="form-label">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" id="nacimiento" name="nacimiento" [(ngModel)]="formData.nacimiento" required #nacimientoInput="ngModel">
-                                <div *ngIf="nacimientoInput.invalid && (nacimientoInput.dirty || nacimientoInput.touched)" class="text-danger mt-1">
-                                    <div *ngIf="nacimientoInput.errors?.['required']">La fecha de nacimiento es obligatoria.</div>
-                                </div>
-                            </div>
-                            <div class="mb-3">
-                                <label for="direccion" class="form-label">Dirección de despacho (opcional)</label>
-                                <input type="text" class="form-control" id="direccion" name="direccion" [(ngModel)]="formData.direccion">
-                            </div>
-                            <div class="text-end">
-                                <button type="submit" class="btn btn-outline-dark me-2" [disabled]="form.invalid">Registrar</button>
-                                <button type="button" class="btn btn-secondary" id="btn-limpiar" (click)="onLimpiar(form)">Limpiar</button>
-                            </div>
-                        </form>
+                        <app-form-register></app-form-register>
                     </div>
                 </div>
             </div>
